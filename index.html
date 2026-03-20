@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0d0d14" />
+  <title>MobileGyro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <span class="header-icon">⬡</span>
+      <h1 class="header-title">MobileGyro</h1>
+      <span class="header-subtitle">Live Sensor Visualizer</span>
+    </header>
+
+    <!-- Status bar -->
+    <div class="status-bar" id="statusBar">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Sensors inactive – tap Enable to start</span>
+    </div>
+
+    <!-- Enable button -->
+    <div class="enable-wrap" id="enableWrap">
+      <button class="btn-enable" id="btnEnable">
+        <span class="btn-icon">⚡</span> Enable Sensors
+      </button>
+    </div>
+
+    <!-- 3D Visualization -->
+    <section class="vis-section">
+      <div class="vis-stage" id="visStage">
+        <div class="device-scene" id="deviceScene">
+          <!-- Phone body -->
+          <div class="phone-body">
+            <div class="phone-screen">
+              <div class="screen-grid"></div>
+              <div class="screen-dot"></div>
+            </div>
+            <!-- axis labels on faces -->
+            <div class="face-label face-top">TOP</div>
+            <div class="face-label face-bottom">BTM</div>
+            <div class="face-label face-left">L</div>
+            <div class="face-label face-right">R</div>
+          </div>
+          <!-- Axis arrows -->
+          <div class="axis axis-x"><span>X</span></div>
+          <div class="axis axis-y"><span>Y</span></div>
+          <div class="axis axis-z"><span>Z</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data panels -->
+    <section class="data-section">
+
+      <!-- Orientation -->
+      <div class="data-card" id="cardOrientation">
+        <h2 class="card-title">
+          <span class="card-icon">🧭</span> Orientation
+          <span class="card-badge" id="badgeOrientation">—</span>
+        </h2>
+        <div class="data-grid">
+          <div class="data-item">
+            <span class="data-label">Alpha (Z)</span>
+            <span class="data-value" id="valAlpha">—</span>
+            <span class="data-unit">°</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Beta (X)</span>
+            <span class="data-value" id="valBeta">—</span>
+            <span class="data-unit">°</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Gamma (Y)</span>
+            <span class="data-value" id="valGamma">—</span>
+            <span class="data-unit">°</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rotation rate -->
+      <div class="data-card" id="cardRotation">
+        <h2 class="card-title">
+          <span class="card-icon">🔄</span> Rotation Rate
+          <span class="card-badge" id="badgeRotation">—</span>
+        </h2>
+        <div class="data-grid">
+          <div class="data-item">
+            <span class="data-label">Rate X</span>
+            <span class="data-value" id="valRateX">—</span>
+            <span class="data-unit">°/s</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Rate Y</span>
+            <span class="data-value" id="valRateY">—</span>
+            <span class="data-unit">°/s</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Rate Z</span>
+            <span class="data-value" id="valRateZ">—</span>
+            <span class="data-unit">°/s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acceleration -->
+      <div class="data-card" id="cardAccel">
+        <h2 class="card-title">
+          <span class="card-icon">📐</span> Acceleration
+          <span class="card-badge" id="badgeAccel">—</span>
+        </h2>
+        <div class="data-grid">
+          <div class="data-item">
+            <span class="data-label">Accel X</span>
+            <span class="data-value" id="valAccX">—</span>
+            <span class="data-unit">m/s²</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Accel Y</span>
+            <span class="data-value" id="valAccY">—</span>
+            <span class="data-unit">m/s²</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Accel Z</span>
+            <span class="data-value" id="valAccZ">—</span>
+            <span class="data-unit">m/s²</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      MobileGyro · static · <a href="https://github.com/panndabea/mobilegyro" target="_blank">GitHub</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
